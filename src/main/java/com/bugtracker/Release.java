@@ -1,8 +1,12 @@
 package com.bugtracker;
 
+import com.bugtracker.model.roles.Developer;
+import com.bugtracker.model.roles.Role;
+
 /**
- * @Author Khvahshchevskiy Mikhail
+ * @Author Khvashshchevskiy Mikhail
  */
+
 public class Release {
 
     public static void main(String[] args){
