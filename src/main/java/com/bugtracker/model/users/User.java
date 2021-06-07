@@ -1,6 +1,7 @@
 package com.bugtracker.model.users;
 
 import com.bugtracker.model.groups.Group;
+import com.bugtracker.model.roles.Role;
 
 import java.util.Date;
 import java.util.List;
@@ -14,19 +15,46 @@ public class User {
     private char middleNameChar;
     private Integer age;
     private char sex;
+    private String email;
     private String department;
+    private String position;
     private String description;
     private Date birthDay;
     private boolean state;
     private Status status;
     private List<Group> groups;
+    private List<Role> roles;
 
     public List<Group> getGroups() {
         return groups;
     }
 
+    public List<Role> getRoleList() {
+        return roles;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roles = roleList;
+    }
+
     public void setGroups(List<Group> groups) {
         this.groups = groups;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public Integer getID() {
