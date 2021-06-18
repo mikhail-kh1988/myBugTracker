@@ -3,9 +3,8 @@ package com.bugtracker.services;
 import com.bugtracker.model.groups.Group;
 import com.bugtracker.model.users.Status;
 import com.bugtracker.model.users.User;
-
 import java.util.List;
-import java.util.Optional;
+
 
 public class UserServices {
 
