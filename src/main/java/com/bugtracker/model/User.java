@@ -1,45 +1,29 @@
-package com.bugtracker.model.users;
+package com.bugtracker.model;
 
-import com.bugtracker.model.groups.Group;
-import com.bugtracker.model.roles.Role;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
 
-import java.util.Date;
-import java.util.List;
 
-public class User {
-    private Integer ID;
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long ID;
     private String login;
     private String password;
     private String fullName;
     private String name;
-    private char middleNameChar;
     private Integer age;
     private char sex;
     private String email;
     private String department;
     private String position;
     private String description;
-    private Date birthDay;
+    private LocalDate birthDay;
     private boolean state;
-    private Status status;
-    private List<Group> groups;
-    private List<Role> roles;
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public List<Role> getRoleList() {
-        return roles;
-    }
-
-    public void setRoleList(List<Role> roleList) {
-        this.roles = roleList;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
+    private StatusUser statusUser;
 
     public String getEmail() {
         return email;
@@ -57,7 +41,7 @@ public class User {
         this.position = position;
     }
 
-    public Integer getID() {
+    public long getID() {
         return ID;
     }
 
@@ -97,13 +81,6 @@ public class User {
         this.name = name;
     }
 
-    public char getMiddleNameChar() {
-        return middleNameChar;
-    }
-
-    public void setMiddleNameChar(char middleNameChar) {
-        this.middleNameChar = middleNameChar;
-    }
 
     public Integer getAge() {
         return age;
@@ -137,11 +114,11 @@ public class User {
         this.description = description;
     }
 
-    public Date getBirthDay() {
+    public LocalDate getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Date birthDay) {
+    public void setBirthDay(LocalDate birthDay) {
         this.birthDay = birthDay;
     }
 
@@ -153,11 +130,11 @@ public class User {
         this.state = state;
     }
 
-    public Status getStatus() {
-        return status;
+    public StatusUser getStatus() {
+        return statusUser;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(StatusUser statusUser) {
+        this.statusUser = statusUser;
     }
 }

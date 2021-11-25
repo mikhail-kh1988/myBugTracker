@@ -1,16 +1,26 @@
-package com.bugtracker.model.roles;
+package com.bugtracker.model;
 
-public abstract class AbstractRole {
-    private Integer ID;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+@Table(name = "group")
+public class Group implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long ID;
     private String name;
     private boolean status;
     private String description;
 
-    public Integer getID() {
+
+    public long getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
+    public void setID(long ID) {
         this.ID = ID;
     }
 
@@ -37,4 +47,5 @@ public abstract class AbstractRole {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
