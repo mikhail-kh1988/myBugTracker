@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="error">
+<Configuration statusUser="error">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
