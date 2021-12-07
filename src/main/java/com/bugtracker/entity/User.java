@@ -1,4 +1,4 @@
-package com.bugtracker.model;
+package com.bugtracker.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +23,8 @@ public class User implements Serializable {
     private String description;
     private LocalDate birthDay;
     private boolean state;
+
+    @Enumerated(EnumType.STRING)
     private StatusUser statusUser;
 
     public String getEmail() {

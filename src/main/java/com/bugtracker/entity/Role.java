@@ -1,4 +1,4 @@
-package com.bugtracker.model;
+package com.bugtracker.entity;
 
 public interface Role {
     String getRoleName();

@@ -1,20 +1,23 @@
-package com.bugtracker.model;
+package com.bugtracker.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "group")
-public class Group implements Serializable {
-
+@Table(name = "version")
+public class Version implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
+
+    @Column(name = "external_id")
+    private String externalID;
     private String name;
-    private boolean status;
     private String description;
 
+    @Column(name = "create_date")
+    private LocalDateTime createDate;
 
     public long getID() {
         return ID;
@@ -32,14 +35,6 @@ public class Group implements Serializable {
         this.name = name;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -48,4 +43,19 @@ public class Group implements Serializable {
         this.description = description;
     }
 
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getExternalID() {
+        return externalID;
+    }
+
+    public void setExternalID(String externalID) {
+        this.externalID = externalID;
+    }
 }

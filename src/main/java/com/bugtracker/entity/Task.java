@@ -1,4 +1,4 @@
-package com.bugtracker.model;
+package com.bugtracker.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
