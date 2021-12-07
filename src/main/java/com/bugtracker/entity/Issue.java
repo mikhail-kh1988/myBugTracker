@@ -1,8 +1,7 @@
-package com.bugtracker.model;
+package com.bugtracker.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,10 +11,15 @@ public class Issue implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
+    @Column(name = "external_ID")
     private String externalID;
+
     private String title;
     private String describe;
+
+    @Column( name = "assigne_id")
     private User assignee;
+
     private IssueStatus status;
     private IssueType type;
     private IssuePriority priority;
@@ -23,11 +27,20 @@ public class Issue implements Serializable {
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
+    @Column(name = "close_date")
+    private LocalDateTime closeDate;
+
     @Column(name = "last_modify_date")
     private LocalDateTime lastModifyDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Project project;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Version version;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Category category;
 
     public long getID() {
         return ID;
@@ -115,5 +128,29 @@ public class Issue implements Serializable {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public Version getVersion() {
+        return version;
+    }
+
+    public void setVersion(Version version) {
+        this.version = version;
+    }
+
+    public LocalDateTime getCloseDate() {
+        return closeDate;
+    }
+
+    public void setCloseDate(LocalDateTime closeDate) {
+        this.closeDate = closeDate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
