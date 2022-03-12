@@ -1,9 +1,14 @@
 package com.bugtracker.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "version")
 public class Version implements Serializable {
@@ -19,43 +24,4 @@ public class Version implements Serializable {
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
-    public long getID() {
-        return ID;
-    }
-
-    public void setID(long ID) {
-        this.ID = ID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public String getExternalID() {
-        return externalID;
-    }
-
-    public void setExternalID(String externalID) {
-        this.externalID = externalID;
-    }
 }
