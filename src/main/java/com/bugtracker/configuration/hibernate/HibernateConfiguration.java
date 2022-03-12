@@ -38,7 +38,7 @@ public class HibernateConfiguration {
 
     @Bean
     public Properties hibernateProperties(){
-        properties.setProperty("hibernate.connection.autocommit", "false");
+        properties.setProperty("hibernate.connection.autocommit", "true");
         properties.setProperty("hibernate.hbm2ddl.create_namespaces", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "create");
         properties.setProperty("hibernate.connection.url","jdbc:postgresql://localhost:5432/bug_tracker");

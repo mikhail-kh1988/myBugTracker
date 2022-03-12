@@ -1,8 +1,14 @@
 package com.bugtracker.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "groups")
 public class Group implements Serializable {
@@ -14,37 +20,10 @@ public class Group implements Serializable {
     private boolean status;
     private String description;
 
+    @Column(name = "admin_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User adminGroup;
 
-    public long getID() {
-        return ID;
-    }
-
-    public void setID(long ID) {
-        this.ID = ID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    private List<User> userList;
 }
